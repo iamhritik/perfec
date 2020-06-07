@@ -1,2 +1,2 @@
-# perfec
+# perfik
 Django based web app
