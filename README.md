@@ -1,2 +1,2 @@
-# perfik
+# prefik
 Django based web app
