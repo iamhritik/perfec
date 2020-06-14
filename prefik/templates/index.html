@@ -1,9 +1,60 @@
-{% load static%}
-<html>
-<body>
-	<center>
-		<br><br>
-		<h1 style="color:#232529;font-family:monospace;">{{ test }}</h1>
-	</center>
-</body>
-</html>
+{% extends 'base.html' %}
+{%load static%}
+{% block css %}
+<style type="text/css">
+.row{padding:0!important;}
+.about{height:auto;background:none;padding:0!important;}
+	#profile{padding:10em 0 2em 0;}
+		#about-img{height:10em;width:10em;border-radius:50%;}
+		#about-name{font-family:'Ubuntu',sans-serif;color:#485566;font-size:1.5em;letter-spacing:0.1px;padding:0.8em 0 0em 0;}
+	#aboutme{height:auto;background:#EEEEEE;padding:0em 1.5em 2em 1em;}
+		#hr-line{width:8em;height:0.35em;background-color:#F18D09;margin-left:-2em;}
+		#about-content{font-family:'Ubuntu',sans-serif;font-size:1.15em;text-align:left;color:#323B44;line-height:1.8em;margin-top:2em;letter-spacing:0.2px;}
+		#sociallinks{text-align:left;margin-top:1.5em;border-top:solid 2px #DEDEDE;padding:1em 0 0.2em 0;}
+		#social-icon{height:2em;width:2em;}
+		#social-icon:hover{opacity:0.6;}
+.newmain{height:40em;padding:4em 0 1em 4em;}
+	#recent-head{text-align:left;font-family:monospace;}
+	#extra{margin:1em 0 1em 0;font-family: 'Josefin Sans',sans-serif;font-size:1em;letter-spacing:1px;padding-left:0.2em;text-align:left;}
+</style>	
+{% endblock %}
+
+{% block content%}
+<div class="container-fluid text-center">
+	<div class="row">
+		<div class="col-sm-3 text-center about">
+			<div id="profile">
+				<img src="{% static 'images/profile.png' %}" id="about-img" />
+				<h4 id="about-name">Hi I'm <b style="color:#222830;letter-spacing:1px;font-size:1em;">Hritik</b></h4>
+			</div>
+			<div id="aboutme">
+				<hr id="hr-line">
+				<p id="about-content">
+					I'm a Linux Administrator at Wipro Limited and I write about Linux, Python, Django, Cloud and sometimes something non-technical.
+				</p>
+				<h5 style="font-family:'Roboto',sans-serif;text-align:left;color:#41302A;letter-spacing:1.5px;padding-top:0.4em;">Lives in Delhi,India</h5>
+				<br>
+				<h5 style="font-family:monospace;text-align:left;font-family:'Montserrat',sans-serif;color:#151819;">Feel free to contact me</h5>
+				<div id="sociallinks">
+						<a href="https://www.facebook.com/profile.php?id=100009385909937" target="_blank"><img src="{% static 'images/social/facebook.png'%}" id="social-icon" /></a>&emsp; 
+						<a href="mailto:shahihritik@gmail.com" target="_blank"><img src="{% static 'images/social/gmail.png'%}" id="social-icon" /></a>&emsp;
+			            <a href="https://www.instagram.com/_iamhritik/" target="_blank"><img src="{% static 'images/social/instagram.png'%}" id="social-icon" /></a>&emsp;
+			            <a href="https://github.com/iamhritik" target="_blank"><img src="{% static 'images/social/github.png'%}" id="social-icon"></a>&emsp;
+			            <a href="https://twitter.com/_iamhritik" target="_blank"><img src="{% static 'images/social/twitter.png'%}" id="social-icon"> </a>&emsp;
+			            <a href="https://www.linkedin.com/in/hritik-01bb34165/" target="_blank"><img src="{% static 'images/social/linkedin.png'%}" id="social-icon"> </a>&emsp;
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-9 newmain">
+			<h2 id="recent-head">Recent Posts</h2>
+		</div>
+	</div>
+
+
+
+
+	<div id="extra">
+		<p>	&copy; 2020, All Rights Reserved.</p>
+	</div>
+</div>
+{% endblock %}

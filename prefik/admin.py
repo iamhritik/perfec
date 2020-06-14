@@ -9,3 +9,6 @@ class BlogAdmin(admin.ModelAdmin):
 class ChoiceAdmin(admin.ModelAdmin):
     pass
 
+@admin.register(Author)
+class ChoiceAdmin(admin.ModelAdmin):
+    pass

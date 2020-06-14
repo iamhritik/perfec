@@ -2,11 +2,13 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from prefik import views
+from prefik.views import *
 from django.urls import path
 
 app_name = 'prefik'
 urlpatterns=[
-	path('', views.index, name='index')
+		path('base', Blogshow.as_view()),
+		path('',views.index, name='index'),
 	]
 
 if settings.DEBUG:
