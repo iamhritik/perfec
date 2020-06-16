@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import Http404 , HttpResponse
 from django.views.generic import TemplateView, ListView
 from django.views import View
@@ -7,14 +7,18 @@ from prefik.models import Blog
 from prefik.forms import Blogform
 
 def index(request):
-	return render(request, 'index.html', {'test1':'testing'})
+	blogs = Blog.objects.all()[:3]
+	return render(request, 'index.html',{'blogs':blogs})
 
-class Blogshow(View):
-	template = 'index.html'
-	form_class = Blogform()
-	def get(self,request,*args, **kwargs):
-		form = self.form_class
-		return render(request,self.template,{'form':form})
+def blogs(request):
+	blogs  = Blog.objects.all()
+	return render(request, 'blogs.html' ,{'blogs':blogs})
+
+def show(request, slug):
+	unslug = slug.replace('-', ' ') 
+	detail = Blog.objects.get(title=unslug)
+	return render(request, 'show.html',{'detail':detail})
+
 
 
 
