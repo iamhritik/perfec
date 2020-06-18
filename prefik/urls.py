@@ -7,12 +7,12 @@ from prefik.views import *
 from django.urls import path
 
 app_name = 'prefik'
+handler404 = 'prefik.views.handler404'
 urlpatterns=[
 		path('',views.index, name='index'),
 		path('blogs',views.blogs, name='blogs'),
 		path('blogs/<slug>/', views.show, name='show'),
 	]
-
 if settings.DEBUG:
 	urlpatterns +=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 	urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

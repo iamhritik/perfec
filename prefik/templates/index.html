@@ -1,29 +1,38 @@
 {% extends 'base.html' %}
 {%load static%}
 {% block css %}
-<style type="text/css">
 .row{padding:0!important;}
-.about{height:auto;background:none;padding:0!important;}
+.about{height:auto;background:none;padding:0!important;font-family:'Ubuntu',sans-serif;}
 	#profile{padding:9em 0 2em 0;}
-		#about-img{height:10em;width:10em;border-radius:50%;}
-		#about-name{font-family:'Ubuntu',sans-serif;color:#485566;font-size:1.5em;letter-spacing:0.1px;padding:0.8em 0 0em 0;}
+		#about-img{height:10em;width:10em;border-radius:50%;;}
+		#about-name{color:#485566;font-size:1.5em;letter-spacing:0.1px;padding:0.8em 0 0em 0;}
 	#aboutme{height:auto;background:#EEEEEE;padding:0em 1.5em 1em 1em;}
 		#hr-line{width:8em;height:0.35em;background-color:#F18D09;margin-left:-2em;}
-		#about-content{font-family:'Ubuntu',sans-serif;font-size:1.1em;text-align:left;color:#323B44;line-height:1.5em;margin-top:1.5em;letter-spacing:0.2px;}
+		#about-content{font-size:1.1em;text-align:left;color:#31363A;line-height:1.5em;margin-top:1.5em;letter-spacing:0.2px;}
 		#sociallinks{text-align:left;margin-top:0.1em;border-top:solid 2px #DEDEDE;padding:0.8em 0 0.1em 0;}
 		#social-icon{height:2em;width:2em;}
 		#social-icon:hover{opacity:0.6;}
 .newmain{height:auto;padding:4em 0 1em 2em;}
-	#recent-head{text-align:left;font-family:monospace;}
+	#recent-head{text-align:left;font-family:'Josefin Sans',sans-serif;}
 	.blogs{margin-top:0.2em;padding:0.4em 2.5em 1em 1.5em;}
-		#blog{height:auto;background-color:#FAFAFA;padding:1.5em 1.5em 1.5em 2em; margin-top:2.2em;border:solid 1px #BABABA;border-style: dotted;}
+		#blog{height:auto;background-color:#F7F7F7;padding:1.5em 1.5em 1.5em 2em; margin-top:2.2em;border:solid 1px #BABABA;border-style: dotted;}
+		#blog:hover{filter:contrast(120%);}
 		#blog-title{font-family:'Montserrat',sans-serif;font-size:1.6em;color:#302C2B;text-align:left;}
 		#blog-date{font-family: 'Ubuntu',sans-serif;font-size:1em;color:#0A3F67;text-align:left;padding:1.5em 0 0.2em 1em;}
 
-.extra{height:auto;font-family: 'Josefin Sans',sans-serif;font-size:1em;letter-spacing:1px;padding:1.5em 0 1em 0;}
-</style>	
-{% endblock %}
+.extra{height:auto;font-family:'Josefin Sans',sans-serif;font-size:1em;letter-spacing:1px;padding:1.5em 0 1em 0;}
 
+@media screen and (max-width:600px){
+	#profile{padding:12em 0 2.5em 0;}
+	#hr-line{width:12em;}
+	#aboutme{padding:0em 1.5em 1em 1em;}
+	.newmain{padding:1em 0.5em 1em 0.5em;}
+		.blogs{padding:0.4em 0.5em 1em 0.5em;}
+		#blog{padding:1em 1em 1.5em 1em;margin-top:1.2em;}
+		#blog-title{font-size:1.2em;}
+		#blog-date{font-size:0.9em;}
+}	
+{% endblock %}
 {% block content%}
 <div class="container-fluid text-center">
 	<div class="row">
@@ -39,7 +48,7 @@
 				</p>
 				<h5 style="font-family:'Ubuntu',sans-serif;font-weight:600;text-align:left;color:#41302A;letter-spacing:2px;padding-top:0.55em;">Lives in Delhi,India</h5>
 				<br>
-				<h5 style="font-family:'Ubuntu',sans-serif;color:#123854;text-align:left;letter-spacing:1px;">Feel free to Contact me</h5>
+				<h5 style="font-family:'Ubuntu',sans-serif;color:#123854;text-align:left;letter-spacing:0px;">Feel free to Contact me</h5>
 				<div id="sociallinks">
 						<a href="https://www.facebook.com/profile.php?id=100009385909937" target="_blank"><img src="{% static 'images/social/facebook.png'%}" id="social-icon" /></a>&emsp; 
 						<a href="mailto:shahihritik@gmail.com" target="_blank"><img src="{% static 'images/social/gmail.png'%}" id="social-icon" /></a>&emsp;
@@ -57,7 +66,7 @@
 					<a href="{% url 'prefik:show' b.title|slugify %}" style="text-decoration:none;">
 						<div id="blog">
 							<div id="blog-title">{{ b.title|title }}</div>
-							<div id="blog-date">Posted On: {{ b.publish_date }}</div>
+							<div id="blog-date">Posted On: {{ b.publish_date|date:"F j, Y" }}</div>
 						</div>
 					</a>
 					{% endfor %}

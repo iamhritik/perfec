@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block css %}
+	.error{margin-top:10em;}
+		#lost{height:12em;font-family:'Montserrat',sans-serif;font-size:2.5em;color:#374148;}
+		#error-code{font-family: 'Ubuntu',sans-serif;font-size:1em;color:#0A3F67;margin-top:2em;}
+
+.extra{height:auto;font-family: 'Josefin Sans',sans-serif;font-size:1em;letter-spacing:1px;padding:1.5em 0 1em 0;}
+
+
+{% endblock %}
+{% block content%}
+<div class="container-fluid text-center error">
+	<div id="lost">
+		Lost your Way ?
+		<p id="error-code">| Error Code: 404 Page not Found</p>
+	</div>
+	
+	<div class="extra">
+		<p>	&copy; 2020, All Rights Reserved | Prefik</p>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block css %}
+.blogs{width:70%;margin-top:6.4em;padding:0.4em 2.5em 1em 1.5em;}
+		#blog{height:auto;background-color:#F7F7F7;padding:1.5em 1.5em 1.5em 2em; margin-top:2.2em;border:solid 1px #BABABA;border-style: dotted;}
+		#blog-title{font-family:'Montserrat',sans-serif;font-size:1.6em;color:#302C2B;text-align:left;}
+		#blog-date{font-family: 'Ubuntu',sans-serif;font-size:1em;color:#0A3F67;text-align:left;padding:1.5em 0 0.2em 1em;}
+.extra{height:auto;font-family: 'Josefin Sans',sans-serif;font-size:1em;letter-spacing:1px;padding:1.5em 0 1em 0;}
+
+@media screen and (max-width:600px){
+	.blogs{width:100%;margin-top:5em;padding:0.4em 1em 1em 1.5em;}
+	#blog{padding:1em 0.6em 1.5em 1em;margin-top:1.2em;}
+	#blog-title{font-size:1.2em;}
+	#blog-date{font-size:0.9em;}
+}
+{% endblock %}
+{% block content%}
+<div class="container-fluid text-center blogs">
+	{% for b in blogs %}
+		<a href="{% url 'prefik:show' b.title|slugify %}" style="text-decoration:none;">
+			<div id="blog">
+				<div id="blog-title">{{ b.title|title }}</div>
+					<div id="blog-date">Posted On: {{ b.publish_date }}</div>
+				</div>
+		</a>
+	{% endfor %}
+	<div class="extra">
+		<p>	&copy; 2020, All Rights Reserved | Prefik</p>
+	</div>
+</div>
+{% endblock %}

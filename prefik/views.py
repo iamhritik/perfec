@@ -5,7 +5,9 @@ from django.views import View
 from django.conf import settings
 from prefik.models import Blog
 from prefik.forms import Blogform
+from django.views.decorators.gzip import gzip_page
 
+@gzip_page
 def index(request):
 	blogs = Blog.objects.all()[:3]
 	return render(request, 'index.html',{'blogs':blogs})
@@ -19,7 +21,9 @@ def show(request, slug):
 	detail = Blog.objects.get(title=unslug)
 	return render(request, 'show.html',{'detail':detail})
 
-
+def handler404(request,exception):
+	data = {}
+	return render(request, '404.html',data)
 
 
 

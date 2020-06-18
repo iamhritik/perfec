@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>{% block title %}PREFik{% endblock %}</title>
+	<link href="{% static 'images/prefik.png'%}" rel="shortcut icon">
+    <meta name="theme-color" content="#" />
+    <meta name="Description" content="# ">
+    <meta name="Keywords" content="#">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Montserrat:wght@800&family=Josefin+Sans&family=Roboto:wght@900&display=swap" rel="stylesheet"> 
+<style>
+    .navbar{height:4.5em;background-color:#FFFFFF!important;border:none!important;}
+        .navbar-brand{font-family:'Montserrat',sans-serif;font-size:2em;color:#22282A!important;letter-spacing:1.5px;padding-top:0.95em;}
+        .navbar-collapse{padding:0.5em 4em 0.2em 2em!important;background-color:#FFFFFF;}
+        #link{font-family: 'Ubuntu', sans-serif;font-size:0.85em;color:#0C2A5F;letter-spacing:1px;}
+        #link:hover{color:#113C88;text-decoration:underline;}
+    @media screen and (max-width:600px){
+    .navbar-collapse{padding:0em 4em 0em 2em!important;}
+    .navbar-toggle .icon-bar{width:25px!important;height:3px!important;}
+    .navbar-default .navbar-toggle .icon-bar{background-color:#26292C!important;}
+    .navbar-default .navbar-toggle{border-color:#FFFFFF!important;}
+    .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {background-color:#FFFFFF;}
+
+}
+{% block css%}
+{% endblock %}
+</style>
+</head>
+<body>
+{% block nav %}
+<!--Navbar-Header-Section-Starts-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><b>PreFik</b></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/" id="link">HOME</a></li>
+                    <li><a href="/blogs" id="link">BLOGS</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!--Navbar-Header-Section-Ends-->
+{% endblock %}
+<!--Content-->
+{% block content %}{% endblock %}
+<!--Content-ends-->
+</body>
+</html>
